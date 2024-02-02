@@ -18,7 +18,7 @@
 
   <div class="login">
     {% if user %}
-    <span class="welcomeBack">Welcome back, {{ user.name }}! <a class="logout" href="/logout">(logout)</a></span>
+    <span class="welcomeBack">Welcome back, <a href="/profile">{{ user.name }}</a>! <a class="logout" href="/logout">(logout)</a></span>
     {% else %}
     <a href="/login">Login</a>
     {% endif %}

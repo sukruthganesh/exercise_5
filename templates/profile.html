@@ -18,8 +18,14 @@
 
   <div class="auth">
     <h2>Welcome to Watch Party!</h2>
-    <p>Your username is: <span class="mono">{{ user.name }}</span></p>
-    <p>Your password is <span class="mono">{{ user.password }}</span></p>
+    <div class="profileDetails">
+      <label  class="username" for="username">Your username is: </label>
+      <input  class="username" name="username" class="mono" value="{{ user.name }}">
+      <button class="username">Update</button>
+      <label  class="password" for="password">Your password is: </label>
+      <input  class="password" name="password" class="mono" value="{{ user.password }}">
+      <button class="password">Update</button>
+    </div>
     <p>
       Your user ID and API Key are available on every page as the javascript variables
       <span class="mono">WATCH_PARTY_USER_ID</span> and

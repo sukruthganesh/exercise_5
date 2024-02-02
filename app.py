@@ -8,7 +8,18 @@ from flask import * # Flask, g, redirect, render_template, request, url_for
 from functools import wraps
 
 app = Flask(__name__)
+
+# These should make it so your Flask app always returns the latest version of
+# your HTML, CSS, and JS files. We would remove them from a production deploy,
+# but don't change them here.
+app.debug = True
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+@app.after_request
+def add_header(response):
+    response.headers["Cache-Control"] = "no-cache"
+    return response
+
+
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -79,7 +90,7 @@ def index():
 
 @app.route('/rooms/new', methods=['GET', 'POST'])
 def create_room():
-    print("create room")
+    print("create room") # For debugging
     user = get_user_from_cookie(request)
     if user is None: return {}, 403
 
@@ -96,7 +107,8 @@ def signup():
     user = get_user_from_cookie(request)
 
     if user:
-        return render_with_error_handling('signup.html', user=user) # redirect('/')
+        return redirect('/profile')
+        # return render_with_error_handling('profile.html', user=user) # redirect('/')
     
     if request.method == 'POST':
         u = new_user()
@@ -105,12 +117,22 @@ def signup():
         for key in u.keys():
             print(f'{key}: {u[key]}')
 
-        resp = make_response(render_with_error_handling('signup.html', user=u))
+        resp = redirect('/profile')
         resp.set_cookie('user_id', str(u['id']))
         resp.set_cookie('user_password', u['password'])
         return resp
     
     return redirect('/login')
+
+@app.route('/profile')
+def profile():
+    print("profile")
+    user = get_user_from_cookie(request)
+    if user:
+        return render_with_error_handling('profile.html', user=user)
+    
+    redirect('/login')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -152,9 +174,8 @@ def room(room_id):
 
 # POST to change the user's name
 @app.route('/api/user/name')
-def update_username() {
+def update_username():
     return {}, 403
-}
 
 # POST to change the user's password
 
@@ -163,11 +184,3 @@ def update_username() {
 # GET to get all the messages in a room
 
 # POST to post a new message to a room
-
-# Change username
-
-# Change room name
-
-# Get messages in a room
-
-# Post a message in a room

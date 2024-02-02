@@ -3,7 +3,7 @@
   <title>Watch Party Chat #{{room_id}}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
   <script>
     {% if user %}
@@ -17,12 +17,31 @@
 
 <div class="header">
   <h2><a href="/">Watch Party</a></h2>
-  <invite>
-    {% if room %}
-    <p>Invite users to this chat at:</p>
-    <a href="/rooms/{{ room['id'] }}" id="invite link">/rooms/{{ room['id'] }}</a>
-    {% endif %}
-  </invite>
+  {% if room %}
+  <div class="roomData">
+    <div>Chatting in:</div>
+    <h3 class="display">
+      <span class="roomName">{{ room['name'] }}</span>
+      <!-- TODO: when clicked, 
+        - remove `hide` from the `edit` h3 below
+        - add `hide` to the parent h3 here -->
+      <a href="#"><span class="material-symbols-outlined">edit</span></a></h3>
+    </h3>
+    <h3 class="edit hide">
+      <input value="{{ room['name'] }}">
+      <!-- TODO: when clicked,
+        - POST to update the room name
+        - update `roomName` above with the new name
+        - remove `hide` from the `display` h3 above
+        - add `hide` to the parent h3 here -->
+      <a href="#"><span class="material-symbols-outlined">save</span></a></h3>
+    </h3>
+    <div class="invite">
+      Invite users to this chat at:
+      <a href="/rooms/{{ room['id'] }}" id="invite link">/rooms/{{ room['id'] }}</a>
+    </div>
+  </div>
+  {% endif %}
 </div>
 
 <div class="clip">

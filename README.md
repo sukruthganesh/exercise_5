@@ -2,7 +2,7 @@
 
 10 points
 
-**DUE: Friday, April 28 by 5:30pm**
+**DUE: Friday, February 9 by 5:00pm**
 
 ### Instructions
 
@@ -34,14 +34,14 @@ requirements) is inspired by [yap.chat](https://yap.chat/).
   Implement an API endpoint that accepts and returns JSON and that returns all the
   messages in a chat room. [1 point]
 - API endpoints require a valid API key in the request header. They do not use
-  username/password, and they do not send the API key in the request body.
+  username/password, and they do not send the API key in the request body. [1 point]
 - Write Javascript code that uses `fetch` to retrieve that list of messages. [1 point]
 - When a chat room page first loads, clear any sample messages out of the chat
   histoy. [1 point]
 - Create HTML elements for the messages retreived from the API using
   `document.createElement`. Do not write HTML strings. [1 point]
 - While in a room, check the messages endpoint every 100 ms and add any new messages
-  to the chat history.[1 point]
+  to the chat history. [1 point]
 - Implement an API endpoint to allow users to post messages in a chat room. On all
   queries, pass variable parts to the SQL statement by using a question mark in the
   statement and pass in the arguments as a list,
@@ -49,7 +49,7 @@ requirements) is inspired by [yap.chat](https://yap.chat/).
   [1 point]
 - Default usernames, passwords, and room names are set automatically. Implement
   three API endpoints that accept and return JSON and that allow a user to change their
-  username, their password, and the name of the room they are in. [1 point]
+  username, their password, and the name of the room they are in, and update the front end to use them.[1 point]
 - Javascript code that uses `fetch` to allow a user to update their username or
   password without reloading the page. [1 point]
 - Javascript code that uses `fetch` to allow a user to update the name of a room

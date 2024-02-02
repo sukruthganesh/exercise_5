@@ -311,3 +311,26 @@ button {
   padding: 5px;
   grid-column: 2/3;
 }
+
+.profileDetails {
+  display: grid;
+  grid-template-columns: 9em 12em 5em;
+  column-gap: 0.4em;
+  row-gap: 0.8em;
+}
+
+.roomData h3 {
+  font-size: 2.5em;
+}
+
+.roomData .edit input {
+  font-size: 1em;
+}
+
+.roomData a {
+  color: lightgray;
+}
+
+.hide {
+  display: none;
+}
