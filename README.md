@@ -16,8 +16,8 @@ application framework. You may want to read the
 [Flask Quickstart Guide](https://flask.palletsprojects.com/en/2.2.x/quickstart/).
 
 Launch the app by running `flask run` on the command line from your Exercise 5
-directory. I recommend running `flask run --reload`, which will make the server
-automatically load changes to your python files.
+directory. I recommend running `flask run --reload --debug`, which will make the server
+automatically load changes to your files.
 
 Your task will be to implement a REST API for some of the Watch Party's functions,
 and client-side Javascript code that consumes that API. Though the exercise is
@@ -49,8 +49,8 @@ requirements) is inspired by [yap.chat](https://yap.chat/).
   [1 point]
 - Default usernames, passwords, and room names are set automatically. Implement
   three API endpoints that accept and return JSON and that allow a user to change their
-  username, their password, and the name of the room they are in, and update the front end to use them.[1 point]
+  username, their password, and the name of the room they are in. [1 point]
 - Javascript code that uses `fetch` to allow a user to update their username or
   password without reloading the page. [1 point]
-- Javascript code that uses `fetch` to allow a user to update the name of a room
-  without reloading the page. [1 point]
+- Javascript code to show/hide the room name edit UI and uses `fetch` to allow a user
+  to update the name of a room without reloading the page. [1 point]
