@@ -1,16 +1,9 @@
-/* For index.html */
-
-// TODO: If a user clicks to create a chat, create an auth key for them
-// and save it. Redirect the user to /chat/<chat_id>
-function createChat() {
-
-}
-
-/* For chat.html */
+/* For room.html */
 
 // TODO: Fetch the list of existing chat messages.
 // POST to the API when the user posts a new message.
 // Automatically poll for new messages on a regular interval.
+// Allow changing the name of a room
 function postMessage() {
   return;
 }
@@ -22,3 +15,11 @@ function getMessages() {
 function startMessagePolling() {
   return;
 }
+
+function updateRoomName() {
+  return;
+}
+
+/* For profile.html */
+
+// TODO: Allow updating the username and password
